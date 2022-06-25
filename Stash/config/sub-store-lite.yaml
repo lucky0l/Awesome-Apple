@@ -70,7 +70,7 @@ proxies:
 
 proxy-groups:
 
-  - name: SSID Auto Mode
+  - name: SSID Strategy
     type: select
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/SSID.png?raw=true
     proxies:
@@ -85,6 +85,16 @@ proxy-groups:
       cellular: Server Strategy
       default: Server Strategy
 
+  - name: Outbound Strategy
+    type: select
+    icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/Server.png?raw=true
+    proxies:
+      - SSID Strategy
+      - Auto Select
+      - Manual Select
+      - Fallback
+      - Country
+
   - name: Server Strategy
     type: select
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/Server.png?raw=true
@@ -98,7 +108,7 @@ proxy-groups:
     type: select
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/Global.png?raw=true
     proxies: &global-proxy
-      - SSID Auto Mode
+      - Outbound Strategy
       - DIRECT
 
   - name: Global Direct
@@ -106,7 +116,7 @@ proxy-groups:
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/China_Map.png?raw=true
     proxies: &global-direct
       - DIRECT
-      - SSID Auto Mode
+      - Outbound Strategy
 
   - name: Final
     type: select
