@@ -90,6 +90,7 @@ proxy-groups:
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/Server.png?raw=true
     proxies:
       - SSID Strategy
+      - DIRECT
       - Auto Select
       - Manual Select
       - Fallback
@@ -193,21 +194,21 @@ proxy-groups:
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/Hong_Kong.png?raw=true
     use:
       - all-sub
-    filter: 港|🇭🇰|HK|(?i)Hong
+    filter: 港|🇭🇰|HK|Hong Kong
 
   - name: Japan
     type: select
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/Japan.png?raw=true
     use:
       - all-sub
-    filter: 日|🇯🇵|东京|JP|(?i)Japan
+    filter: 日|🇯🇵|东京|JP|Japan
 
   - name: Tai Wan
     type: select
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/Taiwan.png?raw=true
     use:
       - all-sub
-    filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
+    filter: 台|🇨🇳|🇹🇼|湾|TW|Taiwan
 
   - name: America
     type: select
@@ -221,7 +222,7 @@ proxy-groups:
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/World_Map.png?raw=true
     use:
       - all-sub
-    filter: ^(?!.*(香港|港|🇭🇰|HK|Hong|日本|日|🇯🇵|JP|Japan|台湾|台|🇹🇼|TW|Taiwan|美国|美|🇺🇲|US|American|CN)).*
+    filter: ^(?!.*(香港|港|🇭🇰|HK|Hong Kong|日本|日|🇯🇵|JP|Japan|台湾|台|🇹🇼|TW|Taiwan|美国|美|🇺🇲|US|American|CN)).*
 
 
 rule-providers:
