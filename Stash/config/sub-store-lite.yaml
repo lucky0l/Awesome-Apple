@@ -299,6 +299,11 @@ rule-providers:
     url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Direct/Direct.yaml?raw=true
     path: ./ruleset/global-direct.yaml
 
+  china-domain:
+    <<: *remote-resources-default-config
+    behavior: domain
+    url: https://github.com/QuentinHsu/network-rules/blob/release/Clash/Kr328-Domain-CN.yaml?raw=true
+    path: ./ruleset/china-domain.yaml
 
 rules:
   - RULE-SET,ad-block,AD Block
@@ -313,5 +318,6 @@ rules:
   - RULE-SET,google,Global Proxy
   - RULE-SET,global-proxy,Global Proxy
   - RULE-SET,global-direct,Global Direct
+  - RULE-SET,china-domain,Global Direct
   - GEOIP,CN,Global Direct
   - MATCH,Final
