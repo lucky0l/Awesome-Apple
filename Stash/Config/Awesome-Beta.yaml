@@ -83,11 +83,11 @@ proxies:
 
 proxy-groups:
 
-  - name: Outbound Strategy
+  - name: Outbound Policy
     type: select
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/Server.png?raw=true
     proxies:
-      - SSID Strategy
+      - SSID Policy
       - DIRECT
       - Auto Select
       - Manual Select
@@ -98,7 +98,7 @@ proxy-groups:
     type: select
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/Global.png?raw=true
     proxies: &global-proxy
-      - Outbound Strategy
+      - Outbound Policy
       - DIRECT
 
   - name: Global Direct
@@ -106,7 +106,7 @@ proxy-groups:
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/China_Map.png?raw=true
     proxies: &global-direct
       - DIRECT
-      - Outbound Strategy
+      - Outbound Policy
 
   - name: Final
     type: select
@@ -157,12 +157,12 @@ proxy-groups:
       - REJECT
       - DIRECT
 
-  - name: SSID Strategy
+  - name: SSID Policy
     type: select
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/SSID.png?raw=true
     proxies:
     # 此处为配置文件中的已有策略组
-      - Server Strategy
+      - Server Policy
       - DIRECT  # 虽说 DIRECT 是保留字。但必须配置该策略选项，于此代理集的 proxies 下，不然该代理集就只有 1 个策略选项
     ssid-policy:
     # cellular: 保留字，指代蜂窝数据条件下
@@ -170,10 +170,10 @@ proxy-groups:
     # DIRECT：保留字，直连策略
       HedyLamarr: DIRECT  # HedyLamarr，为 SSID 名称
       HedyLamarr_5G: DIRECT  # HedyLamarr，为 SSID 名称
-      cellular: Server Strategy
-      default: Server Strategy
+      cellular: Server Policy
+      default: Server Policy
 
-  - name: Server Strategy
+  - name: Server Policy
     type: select
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/Server.png?raw=true
     proxies:
