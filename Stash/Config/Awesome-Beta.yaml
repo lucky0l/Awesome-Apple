@@ -353,6 +353,11 @@ rule-providers:
     path: ./ruleset/asn-china.yaml
 
 rules:
+  # 避免重新导入配置后无法下载 GitHub 上的资源
+  - DOMAIN,raw.githubusercontent.com,Global Proxy
+  - DOMAIN,github.com,Global Proxy
+  # 避免 Sub-Store 访问不了面板
+  - DOMAIN-SUFFIX,vercel.app,Global Proxy
   - DOMAIN-KEYWORD,duolingo,Duolingo
   - RULE-SET,ad-block,AD Block
   - RULE-SET,privacy,Privacy
@@ -368,5 +373,5 @@ rules:
 # - RULE-SET,global-direct,Global Direct
 # - RULE-SET,china-domain,Global Direct
   - RULE-SET,asn-china,Global Direct
-#. - GEOIP,CN,Global Direct
+# - GEOIP,CN,Global Direct
   - MATCH,Final
