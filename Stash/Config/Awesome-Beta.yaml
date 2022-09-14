@@ -299,11 +299,11 @@ rule-providers:
     url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/GitHub/GitHub.yaml?raw=true
     path: ./ruleset/github.yaml
 
-  telegram:
+  telegram-asn:
     <<: *remote-resources-default-config
     behavior: classical
-    url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Telegram/Telegram.yaml?raw=true
-    path: ./ruleset/telegram.yaml
+    url: https://github.com/Coldvvater/Clash/blob/master/RuleSet/ASN_Telegram.yaml?raw=true
+    path: ./ruleset/telegram-asn.yaml
 
   twitter:
     <<: *remote-resources-default-config
@@ -335,22 +335,11 @@ rule-providers:
     url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Speedtest/Speedtest.yaml?raw=true
     path: ./ruleset/speedtest.yaml
 
-  global-direct:
-    <<: *remote-resources-default-config
-    behavior: classical
-    url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Direct/Direct.yaml?raw=true
-    path: ./ruleset/global-direct.yaml
-
-  china-domain:
-    <<: *remote-resources-default-config
-    behavior: domain
-    url: https://github.com/QuentinHsu/network-rules/blob/release/Clash/Kr328-Domain-CN.yaml?raw=true
-    path: ./ruleset/china-domain.yaml
-  asn-china:
+  china-asn:
     <<: *remote-resources-default-config
     behavior: classical
     url: https://github.com/Coldvvater/Clash/blob/master/RuleSet/ASN_China.yaml?raw=true
-    path: ./ruleset/asn-china.yaml
+    path: ./ruleset/china-asn.yaml
 
 rules:
   # 避免重新导入配置后无法下载 GitHub 上的资源
@@ -365,13 +354,11 @@ rules:
   - RULE-SET,microsoft,Microsoft
   - RULE-SET,speedtest,Speedtest
   - RULE-SET,github,Global Proxy
-  - RULE-SET,telegram,Global Proxy
+  - RULE-SET,telegram-asn,Global Proxy
   - RULE-SET,twitter,Global Proxy
   - RULE-SET,youtube,Global Proxy
   - RULE-SET,google,Global Proxy
   - RULE-SET,global-proxy,Global Proxy
-# - RULE-SET,global-direct,Global Direct
-# - RULE-SET,china-domain,Global Direct
-  - RULE-SET,asn-china,Global Direct
-# - GEOIP,CN,Global Direct
+  - RULE-SET,china-asn,Global Direct
+  - GEOIP,CN,Global Direct
   - MATCH,Final
