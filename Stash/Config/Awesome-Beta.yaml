@@ -4,7 +4,7 @@
 # 另外，就是新功能的尝鲜，如有问题，还请使用 Awesome.yaml 稳定版
 ###########################################################
 # @created: 2022-08-22
-# @update 2022-08-22
+# @update 2022-09-26
 # @source https://github.com/QuentinHsu/Awesome-Apple
 ###########################################################
 # 参考配置：
@@ -42,11 +42,9 @@ dns:
     - '*.mcdn.bilivideo.cn'
   # 假如你在使用 proxy-groups => ssid-policy 时，nameserver 下必须配置 system，否则部分请求会异常。
   nameserver:
-    - system
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-    - https://dns.google/dns-query
-    - https://cloudflare-dns.com/dns-query
+    - 192.168.100.1 # 这里是特定的局域网网关 DNS，如有需要自行替换
 
 http:
   mitm:
@@ -142,6 +140,28 @@ proxy-groups:
     icon: https://github.com/Koolson/Qure/blob/master/IconSet/Color/Speedtest.png?raw=true
     proxies:
       *global-direct
+
+  - name: Discord
+    type: select
+    icon: https://github.com/QuentinHsu/Awesome-Apple/blob/main/Icon/discord.png?raw=true
+    proxies:
+      - Auto Hong Kong
+      - Fallback Hong Kong
+      - DIRECT
+    use:
+      - all-sub
+    filter: 港|🇭🇰|HK|Hong Kong
+
+  - name: Steam
+    type: select
+    icon: https://github.com/QuentinHsu/Awesome-Apple/blob/main/Icon/steam.png?raw=true
+    proxies:
+      - Auto Hong Kong
+      - Fallback Hong Kong
+      - DIRECT
+    use:
+      - all-sub
+    filter: 港|🇭🇰|HK|Hong Kong
 
   - name: AD Block
     type: select
@@ -311,12 +331,6 @@ rule-providers:
     url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Twitter/Twitter.yaml?raw=true
     path: ./ruleset/twitter.yaml
 
-  global-proxy:
-    <<: *remote-resources-default-config
-    behavior: classical
-    url: https://github.com/QuentinHsu/network-rules/blob/release/Clash/ACL4SSR-Proxy.yaml?raw=true
-    path: ./ruleset/global-proxy.yaml
-
   apple:
     <<: *remote-resources-default-config
     behavior: classical
@@ -335,6 +349,24 @@ rule-providers:
     url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Speedtest/Speedtest.yaml?raw=true
     path: ./ruleset/speedtest.yaml
 
+  discord:
+    <<: *remote-resources-default-config
+    behavior: classical
+    url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Discord/Discord.yaml?raw=true
+    path: ./ruleset/discord.yaml
+
+  steam:
+    <<: *remote-resources-default-config
+    behavior: classical
+    url: https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Steam/Steam.yaml?raw=true
+    path: ./ruleset/steam.yaml
+
+  global-proxy:
+    <<: *remote-resources-default-config
+    behavior: classical
+    url: https://github.com/QuentinHsu/network-rules/blob/release/Clash/ACL4SSR-Proxy.yaml?raw=true
+    path: ./ruleset/global-proxy.yaml
+
   china-asn:
     <<: *remote-resources-default-config
     behavior: classical
@@ -342,17 +374,21 @@ rule-providers:
     path: ./ruleset/china-asn.yaml
 
 rules:
+# ################ Local Rule
   # 避免重新导入配置后无法下载 GitHub 上的资源
   - DOMAIN,raw.githubusercontent.com,Global Proxy
   - DOMAIN,github.com,Global Proxy
   # 避免 Sub-Store 访问不了面板
   - DOMAIN-SUFFIX,vercel.app,Global Proxy
   - DOMAIN-KEYWORD,duolingo,Duolingo
+# ################ Remote Rule
   - RULE-SET,ad-block,AD Block
   - RULE-SET,privacy,Privacy
   - RULE-SET,apple,Apple
   - RULE-SET,microsoft,Microsoft
   - RULE-SET,speedtest,Speedtest
+  - RULE-SET,discord,Discord
+  - RULE-SET,steam,Steam
   - RULE-SET,github,Global Proxy
   - RULE-SET,telegram-asn,Global Proxy
   - RULE-SET,twitter,Global Proxy
