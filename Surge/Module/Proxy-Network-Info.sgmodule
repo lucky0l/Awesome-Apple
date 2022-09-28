@@ -19,3 +19,7 @@ Proxy-Network-Info = script-name = Proxy-Network-Info, update-interval = 1
 
 [Script]
 Proxy-Network-Info = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/QuentinHsu/Awesome-Apple/main/Surge/Script/Proxy-Network-Info.js, argument=moduleTitle=Proxy Network Info
+
+[Rule]
+# 若你的配置不存在名为 Global Proxy 的代理策略组，请修改。
+DOMAIN-SUFFIX,whoer.net,Global Proxy
