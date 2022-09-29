@@ -26,16 +26,15 @@ function getLocationInfo() {
       headers: requestHeader,
     }
     $httpClient.get(cityOptions, function (error, response, data) {
-      if (!data.network) {
+      if (data) {
         let jsonData = JSON.parse(data)
         let country = jsonData.country_code
         let emoji = getFlagEmoji(jsonData.country_code)
-        let city = jsonData.city_name
+        let city = jsonData.city_name || '未知'
         let ip = jsonData.network
         // 生成显示基础内容
         ipInfo = `IP 信息：${ip}`
         locationInfo = `所在地：${emoji}${country} - ${city}`
-
         resolve()
       }
     })
@@ -48,7 +47,7 @@ function getISPInfo() {
       headers: requestHeader,
     }
     $httpClient.get(ispOptions, function (error, response, data) {
-      if (!data.isp) {
+      if (data) {
         let jsonData = JSON.parse(data)
         const isp = jsonData.isp
         ispInfo = `运营商：${isp}`
