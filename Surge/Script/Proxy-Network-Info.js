@@ -10,7 +10,7 @@ class logger {
     this.consoleRaw.log(message)
   }
 }
-const scriptVersion = '1.0'
+const scriptVersion = '1.1.1'
 logger.log(`##### Network IP v${scriptVersion}`)
 let mainURL = 'https://whoer.net/v2/geoip2-'
 const requestHeader = {
