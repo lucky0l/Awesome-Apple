@@ -23,4 +23,4 @@ Proxy-Network-Info = type=generic, timeout=10, script-path=https://raw.githubuse
 
 [Rule]
 # 若你的配置不存在名为 Global Proxy 的代理策略组，请修改。
-DOMAIN-SUFFIX,whoer.net,Global Proxy
+DOMAIN-SUFFIX,whoer.net,🌑Proxy
